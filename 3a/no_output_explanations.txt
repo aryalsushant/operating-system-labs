@@ -1,0 +1,16 @@
+Name: Sushant Aryal
+Course: CSC 306 – Operating Systems
+Date: 2025-09-14
+Lab 3A – No Output Explanations
+
+Figure 3.31:
+In this program, fork is called thrice without any prints. The running process is replicated at each fork, 
+Therefore the overall number will be 2^3 = 8 processes. They all go back 0 and leave without printing anything,
+therefore the terminal remains non-responsive. It illustrates the creation of processes only (no exec, no I/O) and you can verify this. 
+using such tools as pstree, though not included in the code is printing.
+
+Figure 3.32:
+This program branches within a loop which repeats four times. Each time it doubles the number of processes hence terminates.
+with 2^4 = 16 processes. Similar to 3.31, no printf calls are made and all processes simply return 0 and exit. 
+there is nothing on the screen. This is to demonstrate the growth rate of a process tree when fork() is inserted in a. 
+loop, not to produce output.
