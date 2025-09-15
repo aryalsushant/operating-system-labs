@@ -5,3 +5,19 @@ Date: 2025-09-14
 Lab: Lab 3A (Figures 3.30–3.35)
 File: fig3_32.c
 */
+/**
+ * Figure 3.32
+ */
+
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    int i;
+
+    for (i = 0; i < 4; i++) {
+        fork();
+    }
+
+    return 0;
+}
