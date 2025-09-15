@@ -1,0 +1,2 @@
+Child: value = 20
+PARENT: value = 5
