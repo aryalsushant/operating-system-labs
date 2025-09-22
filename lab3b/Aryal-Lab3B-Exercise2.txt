@@ -1,0 +1,25 @@
+Lab 3B – Question 2 – Answer 2
+
+After assembling and executing the simple shell program, the terminal also showed a prompt, which was the "osh>" 
+prompt.
+The program remains in a perpetual loop and will keep on showing this prompt whenever I press the Enter key.
+At this point, it does not actually read or execute any commands as it is just a basic skeleton.
+
+To leave the program, I pressed the Ctrl + C keys, and this stopped the running process and brought me back to my
+normal terminal prompt. The only functionality that I saw was the repetition of the "osh>" display,
+which is what the starter code is intended to accomplish.
+
+Lab 3B – Question 2 – Answer 3
+
+A fairly simple command that may be implemented is the "echo" command.
+To carry out this, the shell would have to read the user input following the prompt
+and then reprint the same string on the screen.
+
+To illustrate, when I typed in echo hello, the program would read the input using functions such as
+fgets() or scanf(), split the string into arguments, and then print out the word "hello."
+This would resemble a working shell command to the user, though it is
+extremely easy to code and just simulated within our program.
+
+This would not involve any complicated process control such as fork() or execvp(),
+so it is a good starting point. It would seem to act as the actual echo command,
+but it is not a real shell command that the operating system is executing.
