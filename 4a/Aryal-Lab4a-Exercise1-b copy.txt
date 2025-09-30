@@ -1,0 +1,42 @@
+Sushant Aryal
+w10166204
+
+This lab shows the fundamentals of concurrent programming using POSIX threads. This program divides the 
+main program into two separate threads and each thread executes a different program as the main thread goes 
+on with its own execution. The numbered code lines and the lettered output (A-H) allows us to follow the precise 
+path of execution and learn how the system allocates threads, why some messages are shown when they are shown, and 
+how pthreadjoin assists in the coordination of completion.
+
+The initial thread executes the threadfunction1 in lines 6-11. This role will print a message to show that it has
+been started (C), and then it invokes sleep(2) to represent the work (by waiting two seconds) and later it will 
+print again to show that it has been completed (G). The second thread executes the threadfunction2 on the lines 
+14-19. It writes a comparable opening message (E), waits a second and then writes its closing message (F). These 
+two functions are separate units of work which may operate simultaneously.
+
+In the main function, threads are also generated and the main function starts at the line number 21. On the 26th 
+line, pthreadcreate is called by the main thread to initialize thread 1. It is related to the line of output C that 
+reads Main thread: Creating Thread 1. Right at the next line, 30, there is another pthreadcreate command, which 
+starts Thread 2, that is presented on the output line B. Once the two threads are created, the main thread will 
+then print message D (Main thread: Waiting for threads to complete) at line 33, which means that the main thread 
+is about to wait both the threads to finish. This is accomplished by two pthreadjoin calls, in lines 34 and 36.
+
+The pthreadjoin function is important as it makes sure that the main thread does not leave the other threads 
+without finishing. On the execution of line 34, the main thread waits until Thread 1 is completed and on line 
+36, the main thread waits until Thread 2 is completed. In the absence of such join calls, the primary thread may 
+preempt the primary thread at an inappropriate time, interrupting its output, or leaving threads incomplete. Once
+ both joins are complete the main thread proceeds to print its final message at line 40 and it is output at the 
+ line H as; Main thread: All threads have completed.
+
+The sequence of messages between A and H is a demonstration of how concurrency would work. The main thread spawns 
+the two worker threads (A and B) in short order, but the threads are both initiated asynchronously. At C, Thread 1 
+declares that it is starting whereas at E, Thread 2 declares the same. Due to the fact that Thread 2 only takes a 
+second as opposed to two seconds of Thread 1, Thread 2 tends to be completed before Thread 1 hence G is preceded by
+ F. This does not hold true though since the operating system determines thread scheduling at system level. The time 
+ at which every thread executes may be slightly different based on availability of the CPU and scheduling choices.
+
+This lab demonstrates that we can make predictions about the overall behavior, such as Thread 2 completing before
+ Thread 1, but we have no direct control over the sequence of individual operations and the scheduler of the
+  operating system does this. The program illustrates how pthreadcreate can be used to start parallel tasks, 
+  the use of pthread_join to synchronize them and the ways in which the output of two or more threads can interlude.
+   It becomes very easy to understand the program logic and the thread scheduling at the system level by connecting 
+   the output letters A-H with the respective code lines.

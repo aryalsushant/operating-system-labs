@@ -9,6 +9,9 @@ To leave the program, I pressed the Ctrl + C keys, and this stopped the running 
 normal terminal prompt. The only functionality that I saw was the repetition of the "osh>" display,
 which is what the starter code is intended to accomplish.
 
+Although the program displays a prompt, it is not a true shell yet. It is missing critical features like reading 
+and parsing user input, forking and executing commands, handling background jobs, and built-in commands such as exit.
+
 Lab 3B – Question 2 – Answer 3
 
 A fairly simple command that may be implemented is the "echo" command.

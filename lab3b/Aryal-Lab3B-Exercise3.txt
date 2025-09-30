@@ -1,0 +1,12 @@
+I created and ran the program and the program spawned a child process through fork.
+The child printed I am the child 0 and called the ls command with execlp ().
+ls which showed all the files in the present directory.
+
+The parent process wrote out I am the parent
+|human|>where was the process ID of the child.
+The parent would then wait until the child process was finished after which he/she would print Child Complete.
+
+This illustrates how fork and exec works whereby fork creates a new process and the child process is substituted 
+by the exec.
+with a different program. The output results were that the processes were carried out in a serial manner.
+The parent had waited till the child was over.
