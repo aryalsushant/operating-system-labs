@@ -361,3 +361,258 @@ This document contains 20 multiple-choice questions about **threads**, **process
 - Unhandled exceptions
 
 ---
+# Operating Systems IPC & Scheduling Quiz – Full Solutions
+
+## Q1. Which IPC mechanism is best for communication between unrelated processes?  
+**Answer:** Message Queues ✅  
+
+**Why Correct:**  
+- Message queues are designed for communication between unrelated processes.  
+- They allow structured, asynchronous message exchange managed by the OS kernel.  
+
+**Why Others Are Wrong:**  
+- **Pipes:** Work well but typically only for related processes (parent-child).  
+- **Shared Memory:** Fast but requires explicit synchronization, less safe.  
+- **Signals:** Only notify events, not for full data communication.  
+
+---
+
+## Q2. In the context of client-server systems, which IPC mechanism is commonly used for communication between a client and a server on different machines?  
+**Answer:** Sockets ✅  
+
+**Why Correct:**  
+- Sockets enable communication across machines using TCP/UDP.  
+- Standard for distributed client-server applications.  
+
+**Why Others Are Wrong:**  
+- **Semaphores:** Only for synchronization, not communication.  
+- **Signals:** Lightweight notifications, not data transfer.  
+- **Pipes:** Limited to same-machine communication.  
+
+---
+
+## Q3. Which of the following is NOT an inter-process communication method?  
+**Answer:** Compilers ✅  
+
+**Why Correct:**  
+- A compiler translates code; it’s not an IPC tool.  
+
+**Why Others Are Wrong:**  
+- **Pipes:** Valid IPC method.  
+- **Mutexes:** Used for synchronization in IPC.  
+- **Message Queues:** Valid IPC mechanism.  
+
+---
+
+## Q4. Which process scheduling technique is most suitable for real-time systems?  
+**Answer:** Priority Scheduling ✅  
+
+**Why Correct:**  
+- Real-time systems rely on priority to ensure critical tasks run first.  
+
+**Why Others Are Wrong:**  
+- **Lottery Scheduling:** Random, not deterministic.  
+- **FCFS:** May delay urgent tasks.  
+- **Round Robin:** Fair but not deadline-oriented.  
+
+---
+
+## Q5. Which of the following is a benefit of using message passing for IPC?  
+**Answer:** Processes can be on different machines ✅  
+
+**Why Correct:**  
+- Message passing allows communication without shared memory, even across machines.  
+
+**Why Others Are Wrong:**  
+- **No need for synchronization:** False, still needed.  
+- **Requires shared address space:** Opposite of message passing.  
+- **Faster than shared memory:** False, shared memory is faster.  
+
+---
+
+## Q6. What is the main disadvantage of the FCFS scheduling algorithm?  
+**Answer:** Convoy Effect ✅  
+
+**Why Correct:**  
+- A long CPU-bound job delays all others, causing a convoy effect.  
+
+**Why Others Are Wrong:**  
+- **Complex implementation:** FCFS is simple.  
+- **High context switching overhead:** Minimal context switching.  
+- **Starvation of low-priority processes:** Happens in priority scheduling, not FCFS.  
+
+---
+
+## Q7. What is the main purpose of process scheduling in an operating system?  
+**Answer:** To allocate CPU time efficiently among processes ✅  
+
+**Why Correct:**  
+- Scheduling ensures fair CPU usage and maximizes efficiency.  
+
+**Why Others Are Wrong:**  
+- **To prevent process creation:** Not related to scheduling.  
+- **To reduce memory usage:** Handled by memory management.  
+- **To increase process count:** Irrelevant to scheduling.  
+
+---
+
+## Q8. Which of the following is a synchronization tool used in inter-process communication?  
+**Answer:** Semaphore ✅  
+
+**Why Correct:**  
+- Semaphores coordinate access to shared resources, preventing race conditions.  
+
+**Why Others Are Wrong:**  
+- **Loader, Compiler, Linker:** Part of program execution, not IPC synchronization.  
+
+---
+
+## Q9. Which of the following is NOT a valid operation on a process?  
+**Answer:** Compilation ✅  
+
+**Why Correct:**  
+- Compilation happens before execution, not at runtime as a process operation.  
+
+**Why Others Are Wrong:**  
+- **Creation, Suspension, Termination:** All valid process operations.  
+
+---
+
+## Q10. Which of the following is a disadvantage of shared memory IPC?  
+**Answer:** Difficult synchronization ✅  
+
+**Why Correct:**  
+- Multiple processes accessing the same memory require complex synchronization.  
+
+**Why Others Are Wrong:**  
+- **No need for synchronization:** False, synchronization is needed.  
+- **Slow communication:** Shared memory is fastest.  
+- **High network overhead:** Not used over a network.  
+
+---
+
+## Q11. Which IPC mechanism is best suited for fast communication between processes on the same machine?  
+**Answer:** Shared Memory ✅  
+
+**Why Correct:**  
+- Direct read/write to memory is the fastest IPC on one machine.  
+
+**Why Others Are Wrong:**  
+- **Sockets:** Extra overhead, mainly for different machines.  
+- **Signals:** Only simple notifications.  
+- **Message Passing:** Slower due to kernel involvement.  
+
+---
+
+## Q12. Which of the following is true about preemptive scheduling?  
+**Answer:** The scheduler can suspend a running process to assign CPU to another process ✅  
+
+**Why Correct:**  
+- Preemptive scheduling allows interruption to give CPU to higher-priority processes.  
+
+**Why Others Are Wrong:**  
+- **Only one process in memory:** False.  
+- **Processes run to completion once started:** Non-preemptive behavior.  
+- **Running process cannot be interrupted:** Opposite of preemption.  
+
+---
+
+## Q13. Which of the following is used to prevent race conditions in inter-process communication?  
+**Answer:** Semaphores ✅  
+
+**Why Correct:**  
+- Enforce mutual exclusion and synchronization, preventing race conditions.  
+
+**Why Others Are Wrong:**  
+- **Loaders, Signals, Compilers:** Not used for race condition prevention.  
+
+---
+
+## Q14. Which IPC method allows processes to communicate without sharing the same address space?  
+**Answer:** Message Passing ✅  
+
+**Why Correct:**  
+- Processes exchange messages without needing shared memory.  
+
+**Why Others Are Wrong:**  
+- **Direct Memory Access:** Hardware-level I/O.  
+- **Shared Memory:** Requires shared address space.  
+- **File System:** Possible but slower and not primary IPC.  
+
+---
+
+## Q15. In client-server communication, which protocol is commonly used for reliable data transfer?  
+**Answer:** TCP ✅  
+
+**Why Correct:**  
+- TCP ensures reliable, ordered, error-checked delivery.  
+
+**Why Others Are Wrong:**  
+- **ICMP:** Diagnostics only.  
+- **UDP:** Fast but unreliable.  
+- **ARP:** Address resolution, not data transfer.  
+
+---
+
+## Q16. Which of the following is a non-preemptive process scheduling algorithm?  
+**Answer:** First-Come, First-Served (FCFS) ✅  
+
+**Why Correct:**  
+- Processes run in arrival order until completion.  
+
+**Why Others Are Wrong:**  
+- **SRTF:** Preemptive.  
+- **Round Robin:** Preemptive.  
+- **Multilevel Queue:** Usually preemptive.  
+
+---
+
+## Q17. Which scheduling algorithm gives each process a small unit of CPU time in cyclic order?  
+**Answer:** Round Robin ✅  
+
+**Why Correct:**  
+- Round Robin uses time slices and cycles through processes fairly.  
+
+**Why Others Are Wrong:**  
+- **FCFS:** Sequential, no time slices.  
+- **SJF:** Based on burst time.  
+- **Priority Scheduling:** Based on priority, not cyclic order.  
+
+---
+
+## Q18. Which of the following is NOT a reason for process termination?  
+**Answer:** Resource request ✅  
+
+**Why Correct:**  
+- Requesting resources blocks a process, it doesn’t terminate it.  
+
+**Why Others Are Wrong:**  
+- **Normal completion:** Process ends after finishing.  
+- **Parent termination:** Children may terminate too.  
+- **Error:** Runtime errors can terminate processes.  
+
+---
+
+## Q19. Which of the following is a disadvantage of preemptive scheduling?  
+**Answer:** High context switching overhead ✅  
+
+**Why Correct:**  
+- Frequent interruptions lead to more context switches, increasing overhead.  
+
+**Why Others Are Wrong:**  
+- **Fairness:** Actually an advantage.  
+- **Better responsiveness:** Advantage, not disadvantage.  
+- **Starvation:** More common in priority scheduling than all preemptive methods.  
+
+---
+
+## Q20. Which of the following IPC mechanisms is signal-based?  
+**Answer:** Signals ✅  
+
+**Why Correct:**  
+- Signals notify processes of events (e.g., termination, interrupts).  
+
+**Why Others Are Wrong:**  
+- **Pipes, Message Queues, Shared Memory:** Data transfer methods, not signal-based.  
+
+---
